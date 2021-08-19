@@ -1,9 +1,11 @@
 # Paper
 
 **Table of Contents:**
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Paper](#paper)
+	- [Legend](#legend)
 	- [Graph Homomorphism Polynomials](#graph-homomorphism-polynomials)
 		- [ToDo](#todo)
 	- [Lovasz Meets Weisfeiler and Leman](#lovasz-meets-weisfeiler-and-leman)
@@ -11,6 +13,18 @@
 		- [ToDo](#todo)
 
 <!-- /TOC -->
+
+---
+
+## Legend
+
+Color | Content
+--- | ---
+<span style="color:red">RED</span> | Definitions, Theorems, Lemmata
+<span style="color:yellow">YELLOW</span> | Scientific information
+<span style="color:green">GREEN</span> | Historical information
+<span style="color:blue">BLUE</span> | Examples
+<span style="color:purple">PURPLE</span> | References
 
 ---
 
