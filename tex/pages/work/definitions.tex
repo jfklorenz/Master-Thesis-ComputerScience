@@ -1,0 +1,45 @@
+\subsection{Definitions}
+
+\subsubsection{Homomorphismus}
+
+\begin{itemize}
+    \item $f(x \cdot y) = f(x)\cdot f(y)$ structure preserving.
+    \item Hom: relation holds -> relation holds
+    \item Strong Hom: relation holds/fails -> relation holds/fail
+    \item 2 vertices no edge -> 2 vertices with edge ==> hom, but not strong hom
+    \item $P_3$ -> $P_3$, $P_2$
+    \item $C_4$ -> $C_4, P_3, P_2$
+    \item any bipartit -> $K_2$
+    \item non-edge -> edge or vertex or non-edge
+    \item proper coloring: adjacent vertices are not assigned the same color
+    \item proper coloring with r colors <=> hom from G to $K_r$ (complete)
+\end{itemize}
+
+\subsubsection{Automorphism}
+\begin{itemize}
+    \item a, b autom -> a verknüpft b is automorphism
+    \item $a$ autom -> $a^{-1}$ autom
+    \item ID always autom, reflection (mirror axis), rotation
+    \item form group
+    \item complete graph: $n!$
+    \item Fact: For every G, $Aut(G)\cong Aut(\overline{G})$
+    \item Theorem: G graph with $n$ vertices (order $n$): $|Aut(G)|$ divides $n!$ and $|Aut(G)|=n!$ $\Longleftrightarrow$ G is $K_n$ or $\overline{K_n}$
+\end{itemize}
+
+\begin{verbatim}
+    # Sage
+    K3 = graphs.CompleteGraph(3)
+    C4 = graphs.CycleGraph(4)
+    K3.show()
+    K3.automorphism_group().list()
+\end{verbatim}
+
+\subsection{Homomorphism Vector}
+\begin{itemize}
+    \item \homv\ $\text{HOM}(G):=(\text{Hom}(F,G))_F$, infinite vector
+    \item computing entries \NPc\ -> restrict to certain classes (poly time)
+    \item bounded by \tw\ <-> poly time 
+    \item $\text{HOM}_{\mathcal{C}}(G)$ describes the spectrum
+    \item[->] adj matrices same eigenvalues multiplicities
+\end{itemize}
+

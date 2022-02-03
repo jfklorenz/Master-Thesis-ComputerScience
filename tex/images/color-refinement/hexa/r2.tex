@@ -1,0 +1,16 @@
+\begin{tikzpicture}[
+        scale = 1,
+        every node/.style={transform shape, text depth=0pt, circle},
+        line/.style={line width = .05cm},
+        ]
+    
+    \node[fill=red] (1) at (0: 1cm) {};
+    \node[fill=green] (2) at (60: 1cm) {};
+    \node[fill=yellow] (3) at (120: 1cm) {};
+    \node[fill=green] (4) at (180: 1cm) {};
+    \node[fill=red] (5) at (240: 1cm) {};
+    \node[fill=blue] (6) at (300: 1cm) {};
+    
+    \draw[line] (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- (1);
+    \draw[line] (4) -- (2);
+\end{tikzpicture}

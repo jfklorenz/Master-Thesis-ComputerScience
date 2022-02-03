@@ -8,16 +8,20 @@
 \RequirePackage{pifont}
 \RequirePackage{kpfonts}
 \RequirePackage{calligra}
-\RequirePackage[ngerman]{babel}
+\RequirePackage[english]{babel}
 \RequirePackage{ifthen}
 \RequirePackage[table]{xcolor}
-\RequirePackage{pdflscape}
 \RequirePackage{afterpage}
 \RequirePackage{capt-of}
 \RequirePackage{float}
 \RequirePackage{bbm}
 \RequirePackage{dashrule}
 \RequirePackage{url}
+%\RequirePackage{titlesec}
+\RequirePackage{todonotes}
+\newcounter{todocounter}
+\newcommand{\todonum}[2][]
+{\stepcounter{todocounter}\todo[#1]{\thetodocounter: #2}}
 
 %-------------------------------------------------------------
 %	Math

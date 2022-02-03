@@ -1,0 +1,7 @@
+    \begin{tikzpicture}[
+            scale = 1,
+            every node/.style={transform shape, text depth=0pt, circle},
+            line/.style={line width = .05cm},
+            ]
+        \draw[line] (90:0.5cm) node[fill=red] {} -- ++ (150:1cm) node[fill=green] {} -- ++(210:1cm) node[fill=blue] {} -- ++(270:1cm) node[fill=blue] {} -- ++(330:1cm) node[fill=green] {} --++ (30:1cm) node[fill=red] {} --++ (90:1cm) -- ++(30:1cm) node[fill=green] {} -- ++(330:1cm) node[fill=blue] {} --++(270:1cm) node[fill=blue] {} --++(210:1cm) node[fill=green] {} --++(150:1cm) ;
+    \end{tikzpicture}

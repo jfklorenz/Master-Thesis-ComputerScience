@@ -1,0 +1,16 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "file": "2_0"
+  },
+  "nodes": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1
+    }
+  ],
+  "links": []
+}

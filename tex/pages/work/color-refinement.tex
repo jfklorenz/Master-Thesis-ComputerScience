@@ -1,0 +1,46 @@
+\subsection{Color-Refinement / Weisfeiler-Leman}
+
+% ----------------------------------------------------------------
+
+Properties:
+\begin{itemize}
+    \item different coloring $\Rightarrow$ not isomorph, same color $\Rightarrow$ nothing
+    \item distinguishes almost all non-isomorphic graphs (Erdös)
+    \item after first refinement: colors $\approx$ degrees
+    \item 1-WL \& 2-WL distinguish the same graphs
+    \item k-WL distinguishes less Graphs than (k+1)-WL for all $k\geq 2$
+    \item one-vs-many test trivially possible
+\end{itemize}
+
+\vspace*{.5cm}
+\noindent
+Paper:
+\begin{itemize}
+    \item Color Refinement and its Applications (2017)
+    \item[-] Pseudocode
+    \item The k-dimensional Weisfeiler-Leman Algorithm (2019)
+    \item[-] Pseudcode
+\end{itemize}
+
+\vspace*{.5cm}
+\noindent 
+Pseudocode:
+
+% ----------------------------------------------------------------
+
+\subsubsection{Examples}
+Regular Graph:\\
+\input{images/color-refinement/regular/r0}\\\\
+Path Graph:\\
+\input{images/color-refinement/path/r0}\\
+\input{images/color-refinement/path/r1}\\
+\input{images/color-refinement/path/r2}\\
+\input{images/color-refinement/path/r3}\\
+\input{images/color-refinement/path/r4}\\\\
+Some Graph:\\
+\input{images/color-refinement/hexa/r0}
+\input{images/color-refinement/hexa/r1}
+\input{images/color-refinement/hexa/r2}\\\\
+Fail Graphs:\\
+\input{images/color-refinement/fail/g1}
+\input{images/color-refinement/fail/g2}\\

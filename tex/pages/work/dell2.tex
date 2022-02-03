@@ -1,0 +1,169 @@
+\subsection{Dell 2}
+
+Paper \cite{dell-2} 
+
+
+% ----------------------------------------------------------------
+\subsubsection{Abstract}
+
+\begin{itemize}
+    \item Homomorphism polynomials enumerate all homomorphisms from a pattern graph $H$ to $n$-vertex graphs
+    \item looking for a pattern graph H in another graph G, called the host graph -> homomorphism
+    \item looking for subgraphs of host graph G which are isomorphic to H
+    \item host + pattern as input -> NP-complete
+    \item pattern graph fixed size -> better possible
+    \item suffices to consider the hom polys from H to $K_n$ as the homomorphism polynomial of $H$
+    \item arithmetic circuit constructions of hom polys can be used to obtain almost all known better algorithms for detecting induced subgraph isomorphisms as well
+    \item hom poly yield poly families that are complete for classes VP (bounded treewidth) and VNP (?)
+    \item Graph parameter: Treewidth, parthwidth, treedepth (from being a star)
+    \item H has bounded treewidth, then there are small-sized ari circ for hom polys
+    \item ari circ constructions of hom polys based on treewidth do not use negative constants -> monotone
+    \item Schnorr: expo lower bound for clique poly (special case hom poly: H is clique)
+\end{itemize}
+
+% ----------------------------------------------------------------
+\subsubsection{contributions}
+
+\begin{itemize}
+    \item treew, pathw and treed exactly characterize the complexity of hom poly for arithmetic circuits, ABPs and arithmetic formulas
+    \item colored subgraph iso polys instead of hom polys
+    \item Q: in how many monomial computations can a single gate participate? A: dictated by treewidth
+    \item comp polynomial and use it to construct tree decomposition
+    \item gate can participate in the computation of at most $n^{k-tw(H)-1}$ monomials (degree $k$)
+    \item monotone circ can not produce invalid submonomial (no cancellations)
+    \item treewidth of a clique on $n$ vertices is $n-1$
+\end{itemize}
+
+
+% Theorems
+\begin{theorem}
+    The monotone arithmetic circuit complexity of homomorphism polynomial \todo{plural?}for a pattern graph $H$ is $\Theta(n^{tw(H)+1})$, where $tw(H)$ is the treewidth of $H$.
+\end{theorem}
+
+\begin{theorem}
+    The monotone ABP complexity of homomorphism polynomial for a pattern graph $H$ is $\Theta(n^{pw(H)+1})$, where $pw(H)$ is the pathwidth of $H$.
+\end{theorem}
+
+\begin{theorem}
+    The monotone formula complexity of homomorphism polynomial for a pattern graph $H$ is $\Theta(n^{pw(H)+1})$, where $pw(H)$ is the treedepth of $H$.
+\end{theorem}
+
+% ----------------------------------------------------------------
+\subsubsection{Preliminaries}
+
+\begin{itemize}
+    \item for any poly: size of smallest ABP and size of smallest skew circuit are within constant factors of each other.
+    \item colored iso poly: enumerates all col iso from patttern to host where there are $n$ vertics of each color. This polynomial can be used to count col iso in $n$-vertex host graphs by setting the variables corresponding to edges not in the host graph to $0$.
+    \item size of a tree decomposition is the size of the largest bag minus one.
+    \item Treeewidth is the size of a smallest tree decomposition of H.
+    \item if path: path decomposition (pathwidth)
+    \item For all graphs $tw \leq pw \leq td - 1$
+    \item for $p\geq 2$ there is a tree $X_k$ on $k=2^{p+1}-1$ vertices that have pathwidth p.
+    \item all paths have pathwidth 1 and the k-vertex path has treedepth $\lceil \log_2(k+1)\rceil$.
+\end{itemize}
+
+
+% Definitions
+\begin{definition}\label{def:mono}
+    A polynomial over $\mQ$ is called monotone if all its coefficients are non-negative.
+\end{definition}
+
+\begin{definition}\label{def:ari-circ}
+    An arithmetic circuit over the variables $x_1,\dots,x_n$ is a rooted DAG \todo{directed, acyclic Graph ausschreiben?} where each source node (also called an input gate) is labeled by one of the variables $x_i$ or a constant $a\in\mQ$. All other nodes (called gates) are labeled with either $+$ (addition) or $\times$ (multiplication). The circuit computes a polynomial over $\mQ[x_1,\dots,x_n]$ in the usual fashion.\\
+    The circuit is called monotone if all constnats are non-negative.\\
+    The circuit is a skew circuit if for all $\times$ gates, at least one of the inputs is a variable or a constant.\todo{what else??}\\
+    The circuit is a formula if all gates have out-degree at most one.\\
+    The size of a circuit or skew circuit or formula is the number of edges in the circuit.\\
+    The depth of a circuit is the number of gates in the longest path from the root to an input gate.
+\end{definition}
+
+\begin{definition}
+    \todo{ABP notwendig?}
+    An Algebraic Branching Program (ABP) is a DAG with a unique source ndoe $s$ and a unique sink node $t$. Each edge is labeled with a variable from $x_1,\dots,x_n$ or a constant $a\in\mQ$. Each path in the DAG from $s$ to $t$ corresponds to a term obtained by multiplying all edge labels on that path. The polynomial computed by the ABP is the sum of all terms over all paths from $s$ to $t$. The ABP is called monotone if all constants are non-negative. The size of the ABP is the number of edges.
+\end{definition}
+
+\begin{definition}\label{def:hom}
+    For graphs $H$ and $G$, a homomorphism from $H$ to $G$ is a function $\phi:V(H)\mapsto V(G)$ such that $\{i,j\}\in E(H)$ implies $\{\phi(i),\phi(j)\}\in E(G)$. For an edge $e=\{i,j\}$ in $H$, we use $\phi(e)$ to denote $\{\phi(i),\phi(j)\}$.
+\end{definition}
+
+\begin{definition}\label{def:col-iso}
+    Let $H$ be a $k$-Vertex graph where its vertices are labeled $[k]$ and let $G$ be a graph where each vertex has a color in $[k]$. Then, a colored isomorphism of $H$ in $G$ is a subgraph of $G$ isomorphic to $H$ such that all vertices in the subgraph have different colors and for each edge $\{i,j\}$ in $H$, there is an edge in the subgraph between vertices colored $i$ and $j$.
+\end{definition}
+
+\begin{definition}\label{def:hom-poly}
+    For a pattern graph $H$ on $k$ vertices, the $n^{\text{th}}$ homomorphism polynomial for $H$ is a polynomial on $\binom{n}{2}$ variables $x_e$ where $e=\{u,v\}$ for $u,v\in [n]$.
+    \[\text{Hom}_{H,n}=\sum\limits_{\phi}\prod\limits_e x_{\phi(e)}\]
+    where $\phi$ ranges over all homomorphisms from $H$ to $K_n$ and $e$ ranges over all edges in $H$.
+\end{definition}
+
+\begin{definition}\label{def:col-iso-poly}
+    For a pattern graph $H$ on $k$ vertices, the $n^{\text{th}}$ \textit{colored isomorphism polynomial} for $H$ is a polynomial on $|E(H)|n^2$ variables $x_e$ where $e=\{(i,u),(j,v)\}$ for $u,v\in [n]$ and $\{i,j\}\in E(H)$.
+    \[ \text{Collso}_{H,n}=\sum\limits_{u_1,\dots,u_k}\prod\limits_{i,j} x_{\{(i,u_i),(j,u_j)\}} \]
+    where $u_1,\dots,u_k\in [n]$ and $\{i,j\}\in E(H)$.
+\end{definition}
+
+\noindent
+New labeling can be obtained by the substitution $x_{\{(i,u),(j,v)\}}\mapsto x_{\{(\xi(i),u),(\xi(j),v)\}}$.
+
+\begin{definition}
+    \todo{Notwendig?}
+    Let $g$ be a gate in a circuit $C$. A \textit{parse tree} rooted at $g$ is any rotted tree which can be obtained by the following procedure, duplicating gates in $C$ as neccessary to preserve the tree structure.
+    \begin{enumerate}
+        \item The gate $g$ is the root of the tree.
+        \item If there is a multiplication gate $g$ in the tree, include all its children in the circuit as its children in the tree.
+        \item If there is an addition gate $g$ in the tree, pick an arbitrary child of $g$ in the circuit and include it in the tree.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}\label{def:tree-decomposition}
+    A \textit{tree decomposition} of $H$ is a tree where each vertex (called a \textit{bag}) in the tree is a subset of vertices of $H$. This tree must satisy two properties.
+    \begin{enumerate}
+        \item For every edge $\{i,j\}$ in $H$, there must be at least one bag in the tree that contains both $i$ and $j$.
+        \item for any vertex $i$ in $H$, the subgraph of the tree decomposition induced by all bags containing $i$ must be a subtree. This subtree is called the \textit{subtree induced by $i$}.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \todo{Notwendig?}
+    For a connected graph $H$, an \textit{elimination tree} of $H$ is a rooted, directed tree that can be constructed by arbitrarily picking a vertex $u$ in $H$ and adding edges from the roots of elimination trees of connected components of $H-u$ to the root vertex labeled $u$. In particular, if $H$ is a single vertex, then the elimination tree of $H$ is the same single vertex graph.\\
+    The \textit{depth} of an elimination tree is the number of vertices in the longest path from a leaf to the root. The \textit{treedepth} of $H$ is the depth of the smallest depth elimination tree of $H$.
+\end{definition}
+
+% ----------------------------------------------------------------
+\subsubsection{Algebraic complexity of homomorphism polynomials}
+
+\begin{itemize}
+    \item Hom image of $P_3$ will either be another $P_3$ or an edge $P_2$.\\
+    
+\end{itemize}
+
+\begin{definition}
+    A \textit{separating set} for a polynomial $p$ is a set of monomials in $p$ such that for any two monomials $s$ and $t$ in the seperating set, there does not exist a monomial $m$ of $p$ such that $m$ divides the product $st$.
+\end{definition}
+
+\noindent 
+The size of a separating set lower bounds the size of the monotone arithmetic circuit computing the polynomial. $\text{Hom}_{K_k}$ requires monotone arithmetic circuits of size $n^k$.
+
+\begin{theorem}
+    \todo{Proposition}
+    Any separating set for $\text{Hom}_{P_3,n}$ has size at most $n$ for sufficiently large $n$.
+\end{theorem}
+
+Proof...
+
+\noindent
+Hom image of $P_3$ will either be another $P_3$ or an edge $P_2$.\\
+monomials of Hom$_{P_3,n}$ correspond to $P_3$ or edge.
+
+\begin{theorem}
+    \todo{Proposition}
+    Any separating set for Hom$_{C_4,n}$ has size at most $n^2$ for sufficiently large $n$.
+\end{theorem}
+
+Proof...
+
+\begin{theorem}\label{thm:mon-circ-complexity}
+    The \textit{monotone circuit complexity} of Hom$_{H}$ is $\Theta(n^{\text{tw}+1})$.
+\end{theorem}
+
+Proof... Über tree-decomposition \todo{verstehen}

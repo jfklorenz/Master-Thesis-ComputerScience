@@ -1,0 +1,24 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "file": "3_1"
+  },
+  "nodes": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 1
+    }
+  ]
+}
