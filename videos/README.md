@@ -11,22 +11,17 @@
     - [Arbeit](#arbeit)
       - [LaTeX](#latex)
       - [Video / Sound](#video--sound)
-  - [Video 1](#video-1)
-  - [Video 2](#video-2)
+  - [Video 1 - Graph Homomorphisms](#video-1---graph-homomorphisms)
+  - [Video 2 - (Color Refinement?)](#video-2---color-refinement)
+  - [Video 3 -](#video-3--)
 
 ---
 ---
 
 ## ToDo
 
-
----
-
 ### Current
 - Konzept ausarbeiten, mit Holger absprechen
-
-
----
 
 ### Vorarbeit
 
@@ -71,7 +66,7 @@
 
 ---
 
-## Video 1
+## Video 1 - Graph Homomorphisms
 ```
 - Umfang: X min
 ```
@@ -81,7 +76,7 @@
 
 ---
 
-## Video 2
+## Video 2 - (Color Refinement?)
 ```
 - Umfang: X min
 ```
@@ -91,3 +86,17 @@
 
 ---
 
+## Video 3 - 
+```
+- Umfang: X min
+```
+
+
+
+
+
+
+
+
+
+---

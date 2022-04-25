@@ -1,9 +1,17 @@
-
+# Cospectral
+# ----------------------------------------------------------------
+# imports
 import numpy as np
+import networkx as nx
 
+# ----------------------------------------------------------------
 def areCospectral(A, B):
     """Input: 2 quadratic matrices of size n. Output: True/False depending if A and B are cospectral."""
-
+    if isinstance(A, nx.Graph):
+        A = nx.adjacency_matrix(A).todense()
+    if isinstance(B, nx.Graph):
+        B = nx.adjacency_matrix(B).todense()
+        
     A_evals, _ = np.linalg.eig(A) # A_evecs
     B_evals, _ = np.linalg.eig(B) # B_evecs
 
@@ -27,21 +35,3 @@ def validateEigenvalues(A_evals, B_evals, err = 2 ** (-20)):
     print(evals)
 
     return True
-
-A = [
-    [0,0,1,0,1],
-    [0,0,0,0,0],
-    [1,0,0,1,0],
-    [0,0,1,0,1],
-    [1,0,0,1,0]
-]
-
-B = [
-    [0,1,0,0,0],
-    [1,0,1,1,1],
-    [0,1,0,0,0],
-    [0,1,0,0,0],
-    [0,1,0,0,0]
-]
-
-print(areCospectral(A, B))

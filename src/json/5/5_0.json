@@ -1,0 +1,33 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "file": "5_0",
+    "treewidth": 0,
+    "color-refinement": [
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ],
+  "links": []
+}
